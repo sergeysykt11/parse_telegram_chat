@@ -30,9 +30,10 @@ def save_last_message_id(message_id):
 async def check_and_forward_messages():
     last_message_id = read_last_message_id()
     if last_message_id is not None:
-        messages = client.iter_messages(group_username, min_id=last_message_id, reverse=True)
+        messages = client.iter_messages(group_username, min_id=last_message_id)
     else:
-        messages = client.iter_messages(group_username, limit=100, reverse=True)
+        print('Я тут')
+        messages = client.iter_messages(group_username, limit=100)
 
     async for message in messages:
         print(message)
@@ -40,7 +41,7 @@ async def check_and_forward_messages():
             message_link = f"https://t.me/c/{str(message.chat_id)[4:]}/{message.id}"  # Формируем ссылку на сообщение
             forward_text = f"{message.text}\nСсылка на сообщение: {message_link}"
             # Пересылаем сообщение с текстом и ссылкой
-            await client.send_message(user_to_send, forward_text)
+            # await client.send_message(user_to_send, forward_text)
 
     last_message = await client.get_messages(group_username, limit=1)
     # Сохраняем ID последнего обработанного сообщения
