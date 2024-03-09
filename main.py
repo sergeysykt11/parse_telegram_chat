@@ -32,7 +32,6 @@ async def check_and_forward_messages():
     if last_message_id is not None:
         messages = client.iter_messages(group_username, min_id=last_message_id)
     else:
-        print('Я тут')
         messages = client.iter_messages(group_username, limit=100)
 
     async for message in messages:

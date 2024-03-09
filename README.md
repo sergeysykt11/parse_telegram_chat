@@ -12,6 +12,7 @@
 * pip install python-dotenv
 
 Установка крона на сервере:
+0) Замените "anon" на полный путь на сервере (/path/path1/anon)
 1) crontab -e
 2) */N * * * * /usr/bin/python3 /путь/к/main.py
 
