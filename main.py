@@ -41,7 +41,7 @@ async def check_and_forward_messages():
             message_link = f"https://t.me/c/{str(message.chat_id)[4:]}/{message.id}"  # Формируем ссылку на сообщение
             forward_text = f"{message.text}\nСсылка на сообщение: {message_link}"
             # Пересылаем сообщение с текстом и ссылкой
-            # await client.send_message(user_to_send, forward_text)
+            await client.send_message(user_to_send, forward_text)
 
     last_message = await client.get_messages(group_username, limit=1)
     # Сохраняем ID последнего обработанного сообщения
