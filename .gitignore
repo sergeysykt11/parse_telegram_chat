@@ -1,3 +1,4 @@
 *.session
 .idea
 .env
+last_message_id.txt
