@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  telethon_bot:
+    build: .
+    volumes:
+      - .:/scr/telegram/bots
+    command: python3 main.py
